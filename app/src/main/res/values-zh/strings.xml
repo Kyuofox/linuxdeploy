@@ -59,6 +59,7 @@
     <string name="repository_change_url_title">仓库源地址</string>
     <string name="repository_default_description">没有说明。</string>
     <string name="write_permissions_disallow">应用无法写入存储，你是否授予了本应用储存权限？</string>
+    <string name="manage_permissions_disallow">请授予所有文件访问权限</string>
 
     <!--设置-->
     <string name="app_preferences">应用</string>

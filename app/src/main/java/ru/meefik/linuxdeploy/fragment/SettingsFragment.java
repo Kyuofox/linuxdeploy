@@ -201,10 +201,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
     private void requestWritePermissions() {
         int REQUEST_WRITE_STORAGE = 112;
         boolean hasPermission = (ContextCompat.checkSelfPermission(getContext(),
-                Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED);
+                Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED);
         if (!hasPermission) {
             ActivityCompat.requestPermissions(getActivity(),
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_STORAGE);
+                    new String[]{Manifest.permission.READ_MEDIA_IMAGES}, REQUEST_WRITE_STORAGE);
         }
     }
 }

@@ -774,7 +774,8 @@ public class PrefStore {
                 Intent stealthReceive = new Intent();
                 stealthReceive.setAction("ru.meefik.linuxdeploy.BROADCAST_ACTION");
                 stealthReceive.putExtra("show", true);
-                PendingIntent pendingIntentStealth = PendingIntent.getBroadcast(context, 2, stealthReceive, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent pendingIntentStealth = PendingIntent.getBroadcast(context, 2, stealthReceive,
+                        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
                 notificationBuilder.setContentIntent(pendingIntentStealth);
             } else {
                 Intent resultIntent = intent;
@@ -782,19 +783,22 @@ public class PrefStore {
                 TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
                 stackBuilder.addParentStack(MainActivity.class);
                 stackBuilder.addNextIntent(resultIntent);
-                PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(1, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(1,
+                        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
                 notificationBuilder.setContentIntent(resultPendingIntent);
 
                 Intent startReceive = new Intent();
                 startReceive.setAction("ru.meefik.linuxdeploy.BROADCAST_ACTION");
                 startReceive.putExtra("start", true);
-                PendingIntent pendingIntentStart = PendingIntent.getBroadcast(context, 3, startReceive, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent pendingIntentStart = PendingIntent.getBroadcast(context, 3, startReceive,
+                        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
                 notificationBuilder.addAction(R.drawable.ic_play_arrow_24dp, context.getString(R.string.menu_start), pendingIntentStart);
 
                 Intent stopReceive = new Intent();
                 stopReceive.setAction("ru.meefik.linuxdeploy.BROADCAST_ACTION");
                 stopReceive.putExtra("stop", true);
-                PendingIntent pendingIntentStop = PendingIntent.getBroadcast(context, 4, stopReceive, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent pendingIntentStop = PendingIntent.getBroadcast(context, 4, stopReceive,
+                        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
                 notificationBuilder.addAction(R.drawable.ic_stop_24dp, context.getString(R.string.menu_stop), pendingIntentStop);
             }
             notificationBuilder.setOngoing(true);
