@@ -98,7 +98,8 @@ do_install()
     msg "Installing packages: "
     # We must update the certificate before install
 	chroot_exec -u root update-ca-trust
-    pacman_install base $(echo ${core_files} | sed 's/ /\n/g' | awk '{ sub(/-[0-9].*$/,""); print $1 }') ${EXTRA_PACKAGES} ${def_extra_packages}
+    pacman_install base $(echo ${core_files} | sed 's/ /\n/g' | awk '{ sub(/-[0-9].*$/,""); print $1 }') ${EXTRA_PACKAGES}
+    pacman_install ${def_extra_packages}
     is_ok || return 1
 
     msg -n "Clearing cache ... "
