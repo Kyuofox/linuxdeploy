@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId 'ru.meefik.linuxdeploy'
-        minSdkVersion 21
+        minSdkVersion 26
         // API 28 must be frozen for binary execution
         targetSdkVersion 34
         versionCode 259
